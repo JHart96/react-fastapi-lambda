@@ -1,0 +1,15 @@
+service: my-fastapi-service
+
+provider:
+  name: aws
+  ecr:
+    images:
+      myfastapiimage:
+        path: ./  # Directory containing your Dockerfile
+        platform: linux/amd64
+
+functions:
+  myFastAPIFunction:
+    image:
+      name: myfastapiimage
+    url: true
