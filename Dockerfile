@@ -2,11 +2,11 @@
 FROM public.ecr.aws/lambda/python:3.9
 
 # Install requirements
-COPY ./app/requirements.txt /app/requirements.txt
-RUN pip install --no-cache-dir -r /app/requirements.txt
+COPY ./requirements.txt /requirements.txt
+RUN pip install --no-cache-dir -r /requirements.txt
 
 # Copy app code
-COPY ./app ./app
+COPY . .
 
 # Create Lambda handler
-CMD ["app.main.handler"]
+CMD ["main.handler"]

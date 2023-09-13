@@ -1,15 +1,15 @@
-service: my-fastapi-service
+service: react-fastapi-service
 
 provider:
   name: aws
   ecr:
     images:
-      myfastapiimage:
+      react-fastapi-image:
         path: ./  # Directory containing your Dockerfile
         platform: linux/amd64
 
 functions:
-  myFastAPIFunction:
+  reactFastapiFunction:
     image:
-      name: myfastapiimage
+      name: react-fastapi-image
     url: true

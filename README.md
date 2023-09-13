@@ -4,17 +4,27 @@ This is a simple example of how to deploy a FastAPI application to AWS Lambda us
 
 ## Run locally
 
-To run locally as a dev server, use the standard FastAPI command:
+To run the FastAPI locally, use the standard FastAPI command:
 
 ```bash
-uvicorn app.main:app --reload
+uvicorn main:app --reload
 ```
+
+### React app dev
+
+FastAPI only serves pre-built frontends, so when developing the React app you'll need to run the FastAPI backend and React app frontend on separate local servers. To run the FastAPI backend you can use the command above, but to run the React app frontend you'll need to run `npm start` inside `frontend` and be sure to navigate to the right port on localhost (the node one, not the one hosted by FastAPI).
 
 ## Deploy
 
-To deploy to AWS Lambda, run:
+Make sure the latest React app has been compiled. To do so, `cd` into `frontend` and run:
 
+```bash
+npm build
 ```
+
+Now to deploy the full app to AWS Lambda, run:
+
+```bash
 serverless deploy
 ```
 
